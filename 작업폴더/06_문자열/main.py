@@ -91,11 +91,51 @@ a3 = str1.find('서해물과')
 print(f'a1 : {a1}')
 print(f'a2 : {a2}')
 print(f'a3 : {a3}')
-print('---------------------')
+print('---------------------1')
 
 a1 = str1.index('동해물과')
 a2 = str1.index('백두산이')
-a3 = str1.index('서해물과')
+# a3 = str1.index('서해물과')
 print(f'a1 : {a1}')
 print(f'a2 : {a2}')
-print(f'a3 : {a3}')
+# print(f'a3 : {a3}')
+
+print('---------------------2')
+str1 = 'abCDef'
+# 대문자 -> 소문자
+str2 = str1.lower()
+# 소문자 -> 대문자
+str3 = str1.upper()
+
+print(f'str1 : {str1}')
+print(f'str2 : {str2}')
+print(f'str3 : {str3}')
+
+print('---------------------3')
+# 공백삭제
+str1 = '      문자열      '
+str2 = str1.lstrip()
+str3 = str1.rstrip()
+str4 = str1.strip()
+
+print(f'str1 : [{str1}]')
+print(f'str2 : [{str2}]')
+print(f'str3 : [{str3}]')
+print(f'str4 : [{str4}]')
+
+print('---------------------4')
+# 문자열 바꾸기
+str1 = '동해물과 고구마감자'
+str2 = str1.replace('고구마감자', '바나나')
+print(f'str1 : {str1}')
+print(f'str2 : {str2}')
+
+# 문자열 나누기
+str1 = '동해_물과 백두_산이 마르_고 닳_도록'
+# 띄어쓰기를 기준으로 문자열을 나눈다.
+str2 = str1.split()
+print(f'str2 : {str2}')
+
+# _를 기준으로 문자열을 나눈다.
+str3 = str1.split('_')
+print(f'str3 : {str3}')
