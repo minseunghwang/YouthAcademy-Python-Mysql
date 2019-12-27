@@ -80,3 +80,4 @@ print(f'r3 : {tuple(r3)}')
 
 for _ in range(10):
     print('Hello World')
+# 깃다시
