@@ -4,6 +4,7 @@
 # 메서드명 : add, sub, mul, div
 
 class simplecalc():
+
     def add(self,a,b):
         return a+b
     def sub(self,a,b):
