@@ -4,9 +4,10 @@
 
 while True :
     data = input('입력 : ')
-    with open('D:\새파일.txt', 'at', encoding='utf-8') as fp :
-        fp.write(data+' ')
     if not data:
         break
+
+    with open('D:\새파일.txt', 'at', encoding='utf-8') as fp :
+        fp.write(data+' ')
 
     print(data)

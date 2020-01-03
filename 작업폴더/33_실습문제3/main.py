@@ -21,3 +21,30 @@ print(calc.mul(10,2))
 print(calc.div(10,2))
 
 
+class simplecalc2:
+    def __init__(self, a1, a2):
+        self.number1 = a1
+        self.number2 = a2
+
+    def add(self):
+        return self.number1 + self.number2
+
+    def sub(self):
+        return self.number1 - self.number2
+
+    def mul(self):
+        return self.number1 * self.number2
+
+    def div(self):
+        return self.number1 // self.number2
+
+calc = simplecalc2(100,200)
+r1 = calc.add()
+r2 = calc.sub()
+r3 = calc.mul()
+r4 = calc.div()
+
+print(f'더하기 : {r1}')
+print(f'빼기 : {r2}')
+print(f'곱하기 : {r3}')
+print(f'나누기 : {r4}')

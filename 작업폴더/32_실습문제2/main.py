@@ -16,6 +16,6 @@
 for i in range(2,10):
     print(f'{i}단', end=' ★★  ')
     for j in range(1,10):
-        gugudan = '%d X %d = %2d' % (i,j,i*j)
+        gugudan = '%d X %d = %2d' %(i,j,i*j)
         print(gugudan, end='   ')
     print('★★')

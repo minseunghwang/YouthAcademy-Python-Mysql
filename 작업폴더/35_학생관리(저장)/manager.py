@@ -39,12 +39,14 @@ def get_info():
         str_list[idx] = str_list[idx][:-1]
 
     student_list = []
-    # print(str_list)
+    # print('이거 :', str_list)
     # 정보를 학생 객체에 담는다.
     for str in str_list:
+        # print(f'str : {str}')
         # 쉼표(,)를 이용해 잘라낸다.
         str_list = str.split(',')
-        # print(str_list)
+        # print(f'str_list : {str_list}')
+
         # 학생객체를 만든다.
         obj = stu.StudentClass(str_list[0], str_list[1], str_list[2])
         student_list.append(obj)
@@ -61,18 +63,38 @@ def search_info():
     print('---------------------')
     print('학생 검색')
     name = input('학생 이름 : ')
+
+    # 검색된 학생이 있는지 ...
+    search_flag = False
     # 학생 데이터 중에 입력받은 이름에 해당하는 학생 정보를 출력한다.
     for obj in student_list:
         # 객체 안에 있는 이름과 입력받은 이름이 같다면
         if obj.name == name:
+            # 검색된 학생이 있으므로
+            if search_flag == False:
+                search_flag = True
             # 출력한다.
             obj.show_student_info()
             print()
+    if search_flag == False:
+        print('검색 결과가 없습니다.')
 
-        else :
-            print('검색 결과가 없습니다.')
-            break
+def show_all_info():
+    # 학생 정보들을 가져온다.
+    student_list = get_info()
+    # 학생 수
+    student_cnt = len(student_list)
+    # 국어 점수 총점
+    total = 0
+    for obj in student_list:
+        total += int(obj.kor)
+    # 평균
+    avg = total // student_cnt
 
+    print('-------------')
+    print(f'학생의 수 :{student_cnt}')
+    print(f'국어점수 총점 : {total}')
+    print(f'국어점수 평균 : {avg}')
 
 
 
