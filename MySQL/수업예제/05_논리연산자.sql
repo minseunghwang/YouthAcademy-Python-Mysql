@@ -22,6 +22,8 @@ where from_date >= '1990-01-01' and salary >= 60000;
 select emp_no, dept_no
 from dept_manager
 where dept_no = 'd001' or dept_no = 'd002';
+-- where dept_no IN('d001', 'd002');
+-- 이렇게도 가능하군
 
 -- 직함이 Staff인 사원과 Engineer인 사원의 사원번호, 직함을 가져온다.
 select emp_no, title
@@ -36,11 +38,9 @@ where dept_no <> 'd003';
 -- 급여가 60000 이상 70000이하인 사원들의 사원번호, 급여를 가져온다.
 select emp_no, salary
 from salaries
-where salary >= 60000 and salary <= 70000 order by salary ASC;
+where salary >= 60000 and salary <= 70000 and to_date = '9999-01-01';
 
-
-select *
-from dept_manager a join departments b
-where a.dept_no = b.dept_no
-group by b.dept_no
-order by a.dept_no ASC;
+-- 1987년에 고용된 사원의 사원번호, 성, 이름, 고용일을 가져온다.
+select emp_no, last_name, first_name, hire_date
+from employees
+where hire_date >= '1987-01-01' and hire_date < '1988-01-01';

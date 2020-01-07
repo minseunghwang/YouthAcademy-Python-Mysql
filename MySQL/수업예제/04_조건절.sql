@@ -52,6 +52,5 @@ select emp_no, salary
 from salaries
 where to_date = '9999-01-01';
 
-select first_name
-from employees
-where count(first_name) >= '2';
+select first_name, count(*)
+from employees group by first_name;
