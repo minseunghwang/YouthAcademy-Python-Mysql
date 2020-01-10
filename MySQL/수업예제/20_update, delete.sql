@@ -36,6 +36,8 @@ where emp_no in (select emp_no
 								where to_date = '9999-01-01')
 						and to_date = '9999-01-01');
 
+
+
 select salary
 from salaries
 where to_date='9999-01-01';

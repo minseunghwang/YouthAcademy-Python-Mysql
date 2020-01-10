@@ -32,7 +32,7 @@ where a.emp_no = b.emp_no and b.dept_no='d001';
 
 -- emp100 테이블에서 현재의 평균 급여보다 적게 받는 사원들의 정보를 모두 삭제한다.
 delete from emp100
-where emp_no in ( select emp_no 
+where emp_no in (select emp_no 
 					from (select a.emp_no
 							from emp100 a, salaries s
 							where a.emp_no = s.emp_no and s.salary < (select avg(salary)
