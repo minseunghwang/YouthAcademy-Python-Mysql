@@ -19,5 +19,5 @@ def test():
 # 서버 가동
 # 컴퓨터에서 도메인 등록
 # 경로 : C:\Windows\System32\drivers\etc\hosts
-app.run(host='0.0.0.0', port=80)     # 외부에서의 접속이 가능하게한다!
+app.run(host='0.0.0.0', port=80, debug=True)     # 외부에서의 접속이 가능하게한다!    # debug=True (default는 False, True로 설정해주면 파이썬 파일 저장시마다 서버가 새로고침됨. 껏다킬필요없음)
 
