@@ -12,7 +12,7 @@ def connection_db():
     # password : 접속 비밀번호
     # db : 사용할 데이터베이스의 이름
     # charset : 문자열 인코딩 방식
-    conn = pymysql.connect(host="192.9.112.231", user='root', password='1234', db='python_db1', charset='utf8')
+    conn = pymysql.connect(host="127.0.0.1", user='root', password='1234', db='python_db1', charset='utf8')
     return conn
 
 def insert_data():
