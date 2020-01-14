@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // id가 test1인 태그내에 html 코드를 넣어준다.
+        // $("#test1").append('이 부분이 수행될까요??<br/>')         // 아직 id가 test1인 객체를 만나지 못했기 때문에 수행할 내용이 없어 출력이 안된다.
+
+        // 문서내의 모든 HTML 태그 객체가 생성되면 자동으로 호출될 함수를 등록한다.
+        $(document).ready(function(){                               // 문서전체의 함수를 객체화 한 후 호출하기 때문에 출력이 된다.
+            $("#test1").append("이 부분은 추가가 될까요?<br/>")
+        })
+
+        $(document).ready(function(){
+            $("#test1").append('이 부분도 추가가 될까요?<br/>')
+        })
+
+        $(function(){                                               // 위의 것과 같은거 (더 간소화한것)
+            $("#test1").append('이 부분 역시 추가가 될까요? <br/>')
+        })
+    </script>
+</head>
+<body>
+    <h1>Ready 함수</h1>
+    <!--HTML 문서에 작성된 모든 태그들은 객체로 생성된다.-->
+    <!--JavaScript에서는 태그의 객체가 생성되야지만 태그를 사용할 수 있다.-->
+    <!--jQuery의 ready함수를 사용하면 HTML 문서의 모든 태그들의 객체가 생성되고 자동으로 호출된 함수를 등록할 수 있다.-->
+<div id="test1"></div>
+</body>
+</html>

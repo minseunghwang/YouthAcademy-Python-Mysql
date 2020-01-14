@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>test2</h1>
+    <form action="result2" method="post">
+        <!--text : 기본 입력 요소. 문자열 한 줄을 입력할 수 있다. text 속성에 지원하지 않는 문자열 값을 넣어주면 text로 처리된다        -->
+        text : <input type="text" name="data1"><br>
+
+        <!--password : 비밀번호 입력용. 기본적으로 text와 동일하지만 입력한 내용이 ... 으로 표시된다.        -->
+        password : <input type="password" name="data2"><br>
+
+        <!--textarea : 여러 줄 입력 요소. value 속성이 없고 태그 사이에 넣어주는 문자열이 value 속성으로 들어간다. -->
+        textarea : <textarea name="data3" id="msk" cols="30" rows="10"></textarea><br>
+
+        <button type="submit">확인</button>
+    </form>
+</body>
+</html>

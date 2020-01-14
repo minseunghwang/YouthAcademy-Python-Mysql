@@ -17,4 +17,19 @@ def jQueryBasic():
     html = render_template('02_jQueryBasic.html')
     return html
 
+@app.route('/03_Ready')
+def ready():
+    html = render_template('03_Ready.html')
+    return html
+
+@app.route('/04_SelectorBasic')
+def selectorBasic():
+    html = render_template('04_SelectorBasic.html')
+    return html
+
+@app.route('/05_Selector2')
+def selector2():
+    html = render_template('05_Selector2.html')
+    return html
+
 app.run(host='0.0.0.0', port=80, debug=True)

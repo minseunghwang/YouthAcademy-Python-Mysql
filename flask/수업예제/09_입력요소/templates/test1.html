@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>test1</h1>
+    <form action="result1" method="post">
+    <!--value 속성 : HTML 페이지가 나타날때 초기 데이터-->
+        a1 : <input type="text" name="a1" value="abc"><br>
+
+        <!--readonly 속성 : readonly라는 값만 넣어줄 수 있다. 읽기 전용 입력요소. 사용자 입력이나 수정 불가. 데이터는 서버로 전달됨-->
+        a2 : <input type="text" name="a2" readonly="readonly" value="kkkk"><br>
+
+        <!--disabled 속성 : disabled라는 값만 넣어 줄 수 있다. 사용 불가 입력 요소. 화면에 표시는 되자만 수정이 불가능하고 서버로 전달되지도 않는다.-->
+        a3 : <input type="text" name="a3" disabled="disabled" value="zzzz"><br>
+
+        <!--required 속성 : required 라는 값만 넣어줄 수 있으며 반드시 입력해야 하는 요소. 비어있을 경우 submit 버튼 작동x. 현업에서는 JavaScript로 처리하는것이 일반적-->
+        a4 : <input type="text" name="a4" required="required"><br>
+
+        <!--submit버튼 : 버튼을 누르게 되면 action에 세팅되어있는 페이지를 요청한다. 이 때, form 태그안에 있는 입력 요소들에 입력된 데이터를 모두 서버로 전달한다.-->
+        <button type="submit">확인</button>
+
+        <!--사용자가 입력 요소에 데이터를 입력한 후 눌러주면 value속성에 세팅되어있는 값으로 되돌려준다.-->
+        <button type="reset">리셋</button>
+    </form>
+</body>
+</html>

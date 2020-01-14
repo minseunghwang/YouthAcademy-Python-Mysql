@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            // div와 p태그의 배경색을 yellow로 변경한다.
+            $("div").css("background-color", "yellow")
+            $("p").css("background-color", "yellow")
+
+            // , 를 사용하면 여러 선택자들을 동시에 사용할 수 있다.
+            $("div, p").css("background-color", "yellow")
+
+            // $("#a1").css("color", "red")
+            // $("#a2").css("color", "red")
+            $("#a1, #a2").css("color", "red")
+
+            // id가 a3인 태그의 직계(바로 하위) 태그를 선택한다.
+            $("#a3 > h3").css("background-color", "blue")
+
+            // id가 a3인 태그 내의 태그들 중 선택자에 해당하는 태그를 선택한다.
+            $("#a3 h3").css("color", "red")
+
+            // div 태그 중에 class가 a5인 태그를 선택한다.
+            $("div.a5").css("background-color", "green")        // 주의 : $("div.a5")는 div이면서 a5클래스인 것을 뽑겠다 이고 (교집합)
+                                                                // $("div .a5")는 div인 것들과 클래스가 a5인것들 두개다 를 뽑아내겠다는거 (합집합)
+        })
+
+    </script>
+
+</head>
+<body>
+    <h1>Selector 조합</h1>
+
+    <div id="a1">div 1</div>
+    <div>div 2</div>
+    <p id="a2">p 1</p>
+    <p>p 2</p>
+
+    <hr>
+
+    <div id="a3">
+        <h3>태그 1</h3>
+        <div>
+            <h3>태그 2</h3>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="a4">div a4</div>
+    <div class="a5">div a5</div>
+    <p class="a4">p a4</p>
+    <p class="a5">p a5</p>
+</body>
+</html>

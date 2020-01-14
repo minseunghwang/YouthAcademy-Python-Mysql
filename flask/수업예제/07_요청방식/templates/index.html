@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>요청방식</h1>
+    <!--링크를 누른경우 : 링크를 클릭하게 되면 href 속성의 값을 가지고 주소를 만들어 브라우저 주소창에 입력되고 요청을 하게 된다.-->
+
+    <a href="second">second요청</a>
+
+    <!--form 태그에 method를 get으로 주면 get 방식으로 요청한다-->
+    <!--    form 태그안에 있는 submit 버튼을 누르게 되면 action에 세팅되어 있는 주소의 페이지를 method의 방식으로 요청한다. -->
+    <form action="second" method="get">
+        <button type="submit">확인</button>
+    </form>
+
+    <form action="second" method="post">
+        <button type="submit">post submit</button>
+    </form>
+
+    <hr>
+    <form action="third" method="post">
+        <button type="submit">post third</button>
+    </form>
+
+    <a href="third">get third</a><br>
+
+    <hr>
+    <form action="fourth" method="post">
+        <button type="submit">post fourth</button>
+    </form>
+
+    <a href="fourth">get fourth</a><br>
+
+    <hr>
+    <form action="fifth" method="post">
+        <button type="submit">post fifth</button>
+    </form>
+
+    <a href="fifth">get fifth</a><br>
+
+</body>
+</html>

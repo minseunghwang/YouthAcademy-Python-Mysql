@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>요청 파라미터 처리</h1>
+    <a href="test1?data1=aaa&data2=bbb&data3=ccc">test1 get 요청</a><br>
+
+    <hr>
+
+<!--    submit 버튼을 누르면 actino에 세팅되어 있는 주소를 method의 방식으로 전달한다.-->
+<!--    이 때, form 태그 안에 있는입력 요소들의 name 속성의 데이터의 이름이 된다. -->
+    <form action="test2" method="post">
+        value1 : <input type="text" name="value1"><br>
+        value2 : <input type="text" name="value2"><br>
+        value3 : <input type="text" name="value3"><br>
+        <button type="submit">test2 post 요청</button>
+    </form>
+</body>
+</html>
