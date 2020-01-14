@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        function javasciprtTest(){
+            // id가 test1인 태그를 가져온다.
+            var test1 = document.getElementById('test1')
+
+            // test1 태그안에 있는 li 태그들을 가져온다.
+            var li_list = document.getElementsByTagName('li')
+
+            // id가 result인 태그를 가져온다.
+            var result = document.getElementById('result')
+
+            // 가져온 li 태그의 수 만큼 반복한다.
+            // javaScript에서는 for 문을 사용하게 되면 파이썬과 달리 인덱스 번호가 반환된다.
+            for (idx in li_list){
+                // 문자열을 관리하는 객체를 추출한다.
+                var obj = li_list[idx].firstChild
+                // 문자열을 출력한다.
+                result.innerHTML += obj.nodeValue + '<br/>'
+            }
+        }
+
+        function jQeuryTest() {
+            // id가 test1인 태그를 가져온다.
+            // var test1 = jQuery('#test1')
+            // var test1 = $('#test1')
+
+            // forEach는 list에다 붙여사용할 수 있다. 위에서는 li태그 3개 벗겨내기 위해 for문 사용한거처럼 여기선 each 사용
+            $('#test1 > li').each(function(){
+                // li 태그내의 문자열을 가지고온다.
+                var str = $(this).text()
+
+                // result에 누적시켜준다.
+                $('#result').append(str + '<br/>')
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>jQuery 기본</h1>
+    <ul id="test1">
+        <li>항목1</li>
+        <li>항목2</li>
+        <li>항목3</li>
+    </ul>
+
+    <div id="result"></div>
+    <button type="button" onclick="javasciprtTest()">JavaScript</button>
+    <button type="button" onclick="jQeuryTest()">jQuery</button>
+
+</body>
+</html>

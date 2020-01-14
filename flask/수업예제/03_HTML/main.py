@@ -32,5 +32,10 @@ def table():
     html = render_template('05_table.html')
     return html
 
+@app.route('/06_list')
+def list():
+    html = render_template('06_list.html')
+    return html
+
 
 app.run(host='0.0.0.0', port=80, debug=True)
