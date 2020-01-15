@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>제어문 사용하기(if, for)</h1>
+
+    {% if a1 == 10 %}
+    <h3>a1은 10입니다.</h3>
+    {% else %}
+    <h3>a1은 10이 아닙니다.</h3>
+    {% endif %}
+
+    {% for value in a2 %}
+    <h3>a2 : {{value}}</h3>
+    {% endfor %}
+
+</body>
+</html>

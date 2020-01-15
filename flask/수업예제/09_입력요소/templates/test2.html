@@ -16,6 +16,37 @@
         <!--textarea : 여러 줄 입력 요소. value 속성이 없고 태그 사이에 넣어주는 문자열이 value 속성으로 들어간다. -->
         textarea : <textarea name="data3" id="msk" cols="30" rows="10"></textarea><br>
 
+        <!--선택 항목이 주어지고 사용자가 항목을 선택할 수 있는 입력요소-->
+        select : <select name="data4">
+                    <option value="select1">항목1</option>
+                    <option value="select2">항목2</option>
+                    <option value="select3" selected="selected">항목3</option>           // 이거가 선택된 상태로 가겠다.
+                    <option value="select4">항목4</option>
+                    <option value="select5">항목5</option>
+                </select>
+        <br>
+
+        multiple select : <select name="data5" multiple="multiple">                 // 여러개 선택 가능
+                            <option value="select1">항목1</option>
+                            <option value="select2">항목2</option>
+                            <option value="select3">항목3</option>
+                            <option value="select4">항목4</option>
+                            <option value="select5">항목5</option>
+                        </select>
+        <br>
+
+        <!--0개 이상의 항목을 선택한다-->
+        checkbox : <input type="checkbox" value="chk1" name="data6">체크박스1
+                    <input type="checkbox" value="chk2" name="data6" checked="checked">체크박스2
+                    <input type="checkbox" value="chk3" name="data6">체크박스3
+
+        <!--name 속성이 똑같은 것들 중 하나만 선택된다.-->
+        radiobutton : <input type="radio" value="radio1" name="data7">라디오1
+                        <input type="radio" value="radio2" name="data7" checked="checked">라디오2
+                        <input type="radio" value="radio3" name="data7">라디오3
+        <br>
+
+
         <button type="submit">확인</button>
     </form>
 </body>
