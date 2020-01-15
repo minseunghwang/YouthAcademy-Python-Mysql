@@ -1,0 +1,13 @@
+create database flaskdb1
+character set = utf8mb4
+collate = utf8mb4_0900_ai_ci;
+
+use flaskdb1;
+
+create table student_table(
+	student_idx int auto_increment,
+    student_name char(10) not null,
+    student_age int not null,
+    student_kor int not null,
+    constraint student_pk primary key(student_idx)
+);

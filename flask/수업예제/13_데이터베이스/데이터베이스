@@ -1,0 +1,11 @@
+create database flaskdb1
+character set = utf8mb4
+collate = utf8mb4_0900_ai_ci;
+
+use flaskdb1;
+
+create table flasktable(
+	data1 int not null,
+	data2 int not null,
+	data3 int not null
+);
