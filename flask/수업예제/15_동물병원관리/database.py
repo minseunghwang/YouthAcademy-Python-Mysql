@@ -76,3 +76,28 @@ def get_total_info():
 
     conn.close()
     return (animal_list,sum)
+
+# 전체 동물 리스트 보기
+def all_animal_list():
+    conn = get_connection()
+    sql = '''
+        SELECT * FROM flaskdb1.animal_table;
+    '''
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+
+    animal_list = []
+
+    for row in result:
+        animal_dict ={
+            'animal_pk' : row[0],
+            'animal_type' : row[1],
+            'animal_name' : row[2],
+            'animal_age' : row[3],
+            'animal_weight' : row[4]
+        }
+        animal_list.append(animal_dict)
+    conn.close()
+
+    return animal_list

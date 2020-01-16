@@ -1,8 +1,11 @@
 # main.py
 # 주소만 쳐서 들어왔을때 처리할 건 main.py에다 만들꺼에요.
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, make_response
 
 app = Flask(__name__)
+
+# 파이썬 플라스크에서는 세션을 사용하기 위해 암호키를 등록해줘야 한다.
+app.secret_key='1209ujiodk!@#@WQDS)(UJPIO!@WE!@#WD'
 
 # 전역변수
 # 파이썬 프로그램(웹 서버)가 종료될 때 까지 유지된다.
@@ -16,6 +19,7 @@ def index():
     html = render_template('index.html')
     return html
 
+
 @app.route('/test1')
 def test1():
     # data1은 전역변수임을 명시한다.
@@ -27,8 +31,21 @@ def test1():
     # 모든 브라우저, 다른 요청에 대해서는 해당 변수를 사용할 수 없다.
     data2 = request.values.get('data2')
 
+    data3 = request.values.get('data3')
+    # 세션에 저장한다.
+    session['data3'] = data3
+
     html = render_template('test1.html')
-    return html
+
+    # 브라우저로 보낼 응답데이터를 가지고 있는 응답 결과 객체를 생성한다.
+    response = make_response(html)
+
+    # 저장할 쿠키의 정보를 세팅한다.
+    data4 = request.values.get('data4')
+    response.set_cookie('data4', data4, max_age=365*24*60*60)
+
+    return response
+
 
 @app.route('/test2')
 def test2():
@@ -36,6 +53,8 @@ def test2():
     dict1 = {
         'data1' : data1,
         # 'data2' : data2
+        'data3' : session.get('data3'),
+        'data4' : request.cookies.get('data4'),
     }
 
     html = render_template('test2.html', data_dict = dict1)

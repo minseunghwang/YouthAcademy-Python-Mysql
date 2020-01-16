@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        function get_time(){
+            $.ajax({
+                // 요청 주소
+                url : 'get_time',
+
+                // 요청 방식(get, post)
+                type : 'get',
+
+                // 응답 결과의 타입(html, text, json, xml ...)
+                dataType : 'text',
+
+                // 서버로부터 응답결과가 수신되면 호출되는 함수
+                success : function(result){
+                    $("#result").append(result + "<br/>")
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>test2</h1>
+    <button type="button" onclick="get_time()">현재시간 가져오기</button>
+    <div id="result"></div>
+</body>
+</html>
