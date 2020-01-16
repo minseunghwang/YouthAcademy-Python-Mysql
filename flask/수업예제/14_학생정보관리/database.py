@@ -16,6 +16,7 @@ def add_student_info(student_name, student_age, student_kor):
             values(%s, %s, %s)
         '''
 
+    print(student_name, student_age, student_kor)
     # 쿼리 실행
     cursor = conn.cursor()
     cursor.execute(sql, (student_name, student_age, student_kor))

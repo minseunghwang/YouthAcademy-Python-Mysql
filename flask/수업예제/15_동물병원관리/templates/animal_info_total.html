@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>전체 동물의 수 </h1>
+    {% for info in total_info %}
+        {% if info.animal_type == 'dog' %}
+            <h3> 강아지는 총 {{info.animal_count}}마리 입니다.</h3>
+        {% elif info.animal_type == 'cat' %}
+            <h3> 고양이는 총 {{info.animal_count}}마리 입니다.</h3>
+        {% elif info.animal_type == 'bird' %}
+            <h3> 새는 총 {{info.animal_count}}마리 입니다.</h3>
+        {% endif %}
+        <hr>
+    {% endfor %}
+    <h3>동물원에 있는 동물들의 수는 총 {{all_count}} 마리 입니다.</h3>
+
+
+</body>
+</html>
