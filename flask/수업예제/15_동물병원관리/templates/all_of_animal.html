@@ -37,6 +37,7 @@
                 <th>이름</th>
                 <th>나이</th>
                 <th>체중</th>
+                <th>기타</th>
             </tr>
         </thead>
         <tbody>
@@ -47,6 +48,9 @@
                 <td>{{row.animal_name}}</td>
                 <td>{{row.animal_age}} 살</td>
                 <td>{{row.animal_weight}} kg</td>
+                <td>
+                    <a href="all_of_animal?data1={{row.animal_pk}}">탈출</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
