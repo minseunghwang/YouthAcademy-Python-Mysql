@@ -1,0 +1,45 @@
+<!--상단메뉴-->
+
+<!--    navbar : 필수 클래스-->
+<!--    bg-dark : 배경을 어둡게-->
+<!--    navbar-dark : 어두운 배경에 어울리는 글자색-->
+<!--    fixed-top : 상단 고정-->
+<!--    navbar-expand-sm : 모바일 화면 크기가 되면 모바일 메뉴로 변경한다.-->
+<nav class="navbar bg-dark navbar-dark fixed-top navbar-expand-sm">
+    <div class="container">
+        <!--Logo-->
+        <a class="navbar-brand" href="/">home</a>
+
+        <!--좌측메뉴-->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="board_list">공지사항</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">게시판</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href=board_list>스포츠 게시판</a>
+                    <a class="dropdown-item" href="board_list">연예 게시판</a>
+                    <a class="dropdown-item" href="board_list">뉴스 게시판</a>
+                    <a class="dropdown-item" href="board_list">쇼핑 게시판</a>
+                </div>
+            </li>
+        </ul>
+
+        <!--우측메뉴-->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="user_login">로그인</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="user_join">회원가입</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="user_modify">정보수정</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="user_logout">로그아웃</a>
+            </li>
+        </ul>
+    </div>
+</nav>

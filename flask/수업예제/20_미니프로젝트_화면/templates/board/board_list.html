@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>borad/board_list.html</title>
+    {% include 'include/lib.html' %}
+</head>
+<body>
+
+{% include 'include/top_menu.html' %}
+
+<div class="container" style="margin-top:100px">
+    <h1>게시판 이름</h1>
+    <table class="table" style="margin-top:30px">
+        <thead>
+        <tr>
+            <th>글번호</th>
+            <th style="width:60%">제목</th>
+            <th>작성자</th>
+            <th>작성날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for idx in range(10) %}
+        <tr>
+            <td>{{idx+1}}</td>
+            <td><a href="borad_read">글 제목</a></td>
+            <td>홍길동</td>
+            <td>2020-01-17</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="pagination justify-content-center" style="margin-top:50px">
+        <li class="page-item"><a class="page-link" href="#">&lt;&lt;</a></li>
+        {% for idx in range(10) %}
+            <li class="page-item "><a class="page-link" href="#">{{idx+1}}</a></li>
+        {% endfor %}
+        <li class="page-item"><a class="page-link" href="#">&gt;&gt;</a></li>
+    </ul>
+
+    <div class="clearfix">
+        <div class="float-right" style="margin:30px">
+            <a href="board_write" class="btn btn-primary">글쓰기</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
