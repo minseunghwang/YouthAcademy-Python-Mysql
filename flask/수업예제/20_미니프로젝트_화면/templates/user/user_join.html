@@ -4,6 +4,81 @@
     <meta charset="UTF-8">
     <title>user/user_join.html</title>
     {% include 'include/lib.html' %}
+
+    <script>
+        var chk_id = false
+
+        // 아이디 중복 체크하는 함수
+        function check_user_id(){
+            // 입력한 아이디를 가져온다.
+            var user_id = $("#user_id").val()
+            // ajax 통신을 활용해 사용가능 여부를 확인한다.
+            $.ajax({
+                // 접속할 페이지의 주소
+                url : 'check_user_id',
+                // 요청 방식
+                type : 'get',
+                // 서버로 전달할 파라미터
+                data : {
+                    user_id : user_id
+                },
+                // 응답결과 타입
+                dataType : 'text',
+                // 통신이 완료되면 호출되는 함수
+                success : function(result){
+                    if(result.trim() == 'True'){
+                        alert('사용 가능한 아이디 입니다.')
+                        chk_id = true
+                        // 입력을 다시 못하도록 막는다.
+                        $('#user_id').attr('readonly', 'readonly')
+                    }
+                    else {
+                        alert('이미 존재하는 아이디 입니다')
+                        chk_id = false
+                    }
+                }
+            })
+        }
+
+        function check_input(){
+            // 사용자가 입력한 데이터를 추출한다.
+            var user_name = $("#user_name").val()
+            var user_id = $("#user_id").val()
+            var user_pw = $("#user_pw").val()
+            var user_pw2 = $("#user_pw2").val()
+
+            if(user_name.length == 0){
+                alert("이름을 입력해 주세요")
+                $("#user_name").focus()
+                return false
+            }
+            if(user_id.length == 0){
+                alert('아이디를 입력해 주세요')
+                $("#user_id").focus()
+                return false
+            }
+
+            if (user_pw.length == 0){
+                alert('비밀번호를 입력해 주세요')
+                $("#user_pw").focus()
+                return false
+            }
+
+            if(user_pw2 != user_pw){
+                alert('입력한 비밀번호가 서로 다릅니다.')
+                $("#user_pw2").focus()
+                return false
+            }
+
+            if(chk_id == false){
+                alert('아이디 중복확인을 해주세요')
+                $("#user_id").focus()
+                return false
+            }
+
+            return true
+        }
+    </script>
 </head>
 <body>
 {% include 'include/top_menu.html' %}
@@ -12,7 +87,9 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-            <form action="#" method="post">
+            {# onsubmit : return false면 action을 요청하는 것이 무시된다. #}
+            <form action="user_join_pro" method="post" onsubmit="return check_input()">
+
                 <div class="form-group">
                     <label for="user_name">이름</label>
                     <input type="text" name="user_name" id="user_name" class="form-control">
@@ -23,7 +100,7 @@
                     <div class="input-group">
                         <input type="text" name="user_id" id="user_id" class="form-control">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">중복확인</button>
+                            <button class="btn btn-primary" type="button" onclick="check_user_id()">중복확인</button>
                         </div>
                     </div>
                 </div>
@@ -41,7 +118,7 @@
                 <div class="form-group">
                     <div class="clearfix">
                         <div class="float-right">
-                            <button type="button" class="btn btn-primary">가입</button>
+                            <button type="submit" class="btn btn-primary">가입</button>
                             <a href="/" class="btn btn-danger">취소</a>
                         </div>
                     </div>

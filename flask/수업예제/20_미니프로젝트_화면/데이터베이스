@@ -24,7 +24,7 @@ create table user_table(
 );
 
 create table board_table(
-	board_idx int,
+	board_idx int auto_increment,
     board_subject varchar(200) not null,
     board_writer_idx int not null,
     board_date datetime not null,

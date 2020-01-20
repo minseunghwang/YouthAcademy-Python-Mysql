@@ -18,28 +18,31 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">게시판</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href=board_list>스포츠 게시판</a>
-                    <a class="dropdown-item" href="board_list">연예 게시판</a>
-                    <a class="dropdown-item" href="board_list">뉴스 게시판</a>
-                    <a class="dropdown-item" href="board_list">쇼핑 게시판</a>
+                    <a class="dropdown-item" href="board_list?board_info_idx=1&page=1">스포츠 게시판</a>
+                    <a class="dropdown-item" href="board_list?board_info_idx=2&page=1">연예 게시판</a>
+                    <a class="dropdown-item" href="board_list?board_info_idx=3&page=1">뉴스 게시판</a>
+                    <a class="dropdown-item" href="board_list?board_info_idx=4&page=1">쇼핑 게시판</a>
                 </div>
             </li>
         </ul>
 
         <!--우측메뉴-->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="user_login">로그인</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="user_join">회원가입</a>
-            </li>
+            {% if session['login'] and session['login'] == True %}
             <li class="nav-item">
                 <a class="nav-link" href="user_modify">정보수정</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="user_logout">로그아웃</a>
             </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="user_login">로그인</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="user_join">회원가입</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
