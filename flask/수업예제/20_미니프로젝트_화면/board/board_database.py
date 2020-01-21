@@ -89,3 +89,19 @@ def get_board_list(board_info_idx, page):
 
     return result
 
+
+# 전체 글의 개수를 반환한다.
+def get_total_board_cnt(board_info_idx):
+    conn = database.get_connection()
+
+    sql = '''
+            select count(*)
+            from board_table
+            where board_info_idx = %s
+    '''
+    cursor = conn.cursor()
+    cursor.execute(sql,(board_info_idx))
+    result = cursor.fetchone()
+
+    conn.close()
+    return result[0]

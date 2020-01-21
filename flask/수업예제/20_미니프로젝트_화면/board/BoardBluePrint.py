@@ -19,6 +19,36 @@ def board_list():
     # 게시글 정보를 가져온다.
     result = board_database.get_board_list(board_info_idx, page)
 
+    # 페이징 관련 데이터
+    min = (((int(page) - 1) // 10) * 10) + 1
+    max = min + 10
+    # 만약 이전 구간이 없다면 1로 셋팅
+    pre = min -1
+    if pre < 1:
+        pre = 1
+
+    # 전체 글의 개수를 가져온다.
+    board_total_cnt = board_database.get_total_board_cnt(board_info_idx)
+    # 전체 페이지의 개수를 구한다.
+    total_page_cnt = board_total_cnt // 10
+    if total_page_cnt % 10 > 0 :
+        total_page_cnt = total_page_cnt + 1
+
+    # max값이 전체 페이지수보다 크면 전체 페이지수로 조정한다.
+    if max > total_page_cnt:
+        max = total_page_cnt + 1
+
+    next = max
+    if next > total_page_cnt:
+        next = total_page_cnt
+
+    page_dict ={
+        'min' : min,
+        'max' : max,
+        'pre' : pre,
+        'next' : next,
+    }
+
     board_list_data = []
 
     # 로우의 수만큼 반복한다
@@ -31,8 +61,7 @@ def board_list():
         }
         board_list_data.append(obj)
 
-
-    html = render_template('board/board_list.html', board_name=board_name, board_list_data=board_list_data, board_info_idx=board_info_idx)
+    html = render_template('board/board_list.html', board_name=board_name, board_list_data=board_list_data, board_info_idx=board_info_idx, page_dict=page_dict)
     return html
 
 # 게시글 보는 페이지################################################################## board_idx 왜없냐 값이

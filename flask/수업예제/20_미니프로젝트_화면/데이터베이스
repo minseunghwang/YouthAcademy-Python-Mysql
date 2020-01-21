@@ -1,5 +1,3 @@
-drop database flask_mini_table;
-
 -- 테이블 생성 테스트를 위해 데이터베이스를 만든다.
 create database flask_mini_db
 character set = utf8mb4
@@ -8,7 +6,7 @@ collate = utf8mb4_0900_ai_ci;
 use flask_mini_db;
 
 create table board_info_table(
-	board_info_idx int auto_increment,
+	board_info_idx int,
     board_info_name varchar(100) not null,
     constraint board_info_pk primary key(board_info_idx),
     constraint board_info_uq unique(board_info_name)
@@ -32,20 +30,27 @@ create table board_table(
     board_image varchar(100),
     board_info_idx int not null,
     constraint board_pk primary key(board_idx),
-    constraint board_fk1 foreign key(board_writer_idx) references user_table(user_idx),
-    constraint board_fk2 foreign key(board_info_idx) references board_info_table(board_info_idx)
+    constraint board_fk1 foreign key(board_writer_idx)
+               references user_table(user_idx),
+	constraint board_fk2 foreign key(board_info_idx)
+			   references board_info_table(board_info_idx)
 );
 
-insert into board_info_table(board_info_idx, board_info_name)
-values(1, '스포츠게시판');
+insert into board_info_table (board_info_idx, board_info_name)
+values (1, '스포츠게시판');
 
-insert into board_info_table(board_info_idx, board_info_name)
-values(2, '연예게시판');
+insert into board_info_table (board_info_idx, board_info_name)
+values (2, '연예게시판');
 
-insert into board_info_table(board_info_idx, board_info_name)
-values(3, '뉴스게시판');
+insert into board_info_table (board_info_idx, board_info_name)
+values (3, '뉴스게시판');
 
-insert into board_info_table(board_info_idx, board_info_name)
-values(4, '쇼핑게시판');
+insert into board_info_table (board_info_idx, board_info_name)
+values (4, '쇼핑게시판');
+
+commit;
 
 select * from board_info_table;
+
+
+

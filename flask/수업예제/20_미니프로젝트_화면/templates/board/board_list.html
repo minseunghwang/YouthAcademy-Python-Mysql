@@ -33,11 +33,11 @@
     </table>
 
     <ul class="pagination justify-content-center" style="margin-top:50px">
-        <li class="page-item"><a class="page-link" href="#">&lt;&lt;</a></li>
-        {% for idx in range(10) %}
-            <li class="page-item "><a class="page-link" href="#">{{idx+1}}</a></li>
+        <li class="page-item"><a class="page-link" href="board_list?board_info_idx={{board_info_idx}}&page={{page_dict.pre}}">&lt;&lt;</a></li>
+        {% for idx in range(page_dict.min, page_dict.max) %}
+            <li class="page-item "><a class="page-link" href="board_list?board_info_idx={{board_info_idx}}&page={{idx}}">{{idx}}</a></li>
         {% endfor %}
-        <li class="page-item"><a class="page-link" href="#">&gt;&gt;</a></li>
+        <li class="page-item"><a class="page-link" href="board_list?board_info_idx={{board_info_idx}}&page={{page_dict.next}}">&gt;&gt;</a></li>
     </ul>
 
     <div class="clearfix">
